@@ -7,6 +7,7 @@ var tom2 = new Audio("./sounds/tom-2.mp3")
 var tom3 = new Audio("./sounds/tom-3.mp3")
 var tom4 = new Audio("./sounds/tom-4.mp3")
 
+
 var numberDrum = document.querySelectorAll(".drum").length
 
 
@@ -16,27 +17,39 @@ for (var i = 0; i < numberDrum; i++){
 
             var buttonInnerHTML = this.innerHTML;  // identificador do que esta acontecendo no HTML
              
+            makeSound(buttonInnerHTML)
             
-        switch (buttonInnerHTML) {
-            case "w": tom1.play()
-                break;
-            case "a": tom2.play()
-                break;
-            case "s": tom3.play()
-                break;
-            case "d": tom4.play()
-                break;
-            case "j": crash.play()
-                break;
-            case "k": kickBass.play()
-                break;
-            case "l": snare.play()
-                break
-            default:
-                break;
-        }
-
+        
 
     });
 
+}
+
+// DETECT TE KEYBOARD PRESS
+
+document.addEventListener("keypress", function(event) {
+    makeSound(event.key)
+})
+
+
+function makeSound(key){
+
+    switch (key) {
+        case "w": tom1.play()
+            break;
+        case "a": tom2.play()
+            break;
+        case "s": tom3.play()
+            break;
+        case "d": tom4.play()
+            break;
+        case "j": crash.play()
+            break;
+        case "k": kickBass.play()
+            break;
+        case "l": snare.play()
+            break
+        default:
+            break;
+    }
 }
