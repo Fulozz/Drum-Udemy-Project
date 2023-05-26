@@ -18,6 +18,8 @@ for (var i = 0; i < numberDrum; i++){
             var buttonInnerHTML = this.innerHTML;  // identificador do que esta acontecendo no HTML
              
             makeSound(buttonInnerHTML)
+
+            buttonAnimation(buttonInnerHTML);
             
         
 
@@ -27,8 +29,11 @@ for (var i = 0; i < numberDrum; i++){
 
 // DETECT TE KEYBOARD PRESS
 
-document.addEventListener("keypress", function(event) {
+var currentKey = document.addEventListener("keypress", function(event) {
+
     makeSound(event.key)
+
+    buttonAnimation(event.key)
 })
 
 
@@ -49,7 +54,17 @@ function makeSound(key){
             break;
         case "l": snare.play()
             break
-        default:
+        default: console.log(key)
             break;
     }
+}
+
+function buttonAnimation(currentKey){
+    activeButton = document.querySelector("." + currentKey)
+
+    activeButton.classList.add("pressed")
+
+    setTimeout(() => {
+        activeButton.classList.remove("pressed")
+    }, 100);
 }
