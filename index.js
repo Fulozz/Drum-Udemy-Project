@@ -12,27 +12,17 @@ var numberDrum = document.querySelectorAll(".drum").length
 
 
 for (var i = 0; i < numberDrum; i++){
-
         document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-
-            var buttonInnerHTML = this.innerHTML;  // identificador do que esta acontecendo no HTML
-             
-            makeSound(buttonInnerHTML)
-
-            buttonAnimation(buttonInnerHTML);
-            
-        
-
+        var buttonInnerHTML = this.innerHTML;  // identificador do que esta acontecendo no HTML   
+        makeSound(buttonInnerHTML)
+        buttonAnimation(buttonInnerHTML);
     });
 
 }
 
 // DETECT TE KEYBOARD PRESS
-
 var currentKey = document.addEventListener("keypress", function(event) {
-
     makeSound(event.key)
-
     buttonAnimation(event.key)
 })
 
